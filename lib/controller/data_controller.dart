@@ -13,16 +13,15 @@ class DataController extends GetxController{
   FirebaseAuth auth = FirebaseAuth.instance;
 
   DocumentSnapshot? myDocument;
-/*
-
-
   var allUsers  = <DocumentSnapshot>[].obs;
-  var filteredUsers = <DocumentSnapshot>[].obs;
   var allEvents = <DocumentSnapshot>[].obs;
-  var filteredEvents = <DocumentSnapshot>[].obs;
+  var isEventsLoading = false.obs;
   var joinedEvents = <DocumentSnapshot>[].obs;
 
-  var isEventsLoading = false.obs;
+  var filteredUsers = <DocumentSnapshot>[].obs;
+  var filteredEvents = <DocumentSnapshot>[].obs;
+
+
 
 
   var isMessageSending = false.obs;
@@ -54,7 +53,7 @@ class DataController extends GetxController{
       'time': DateTime.now()
     });
   }
-*/
+
   getMyDocument(){
     FirebaseFirestore.instance.collection('users').doc(auth.currentUser!.uid)
         .snapshots().listen((event) {
@@ -113,10 +112,10 @@ class DataController extends GetxController{
     // TODO: implement onInit
     super.onInit();
     getMyDocument();
-    //getUsers();
-    //getEvents();
+    getUsers();
+    getEvents();
   }
-/*
+
 
   var isUsersLoading = false.obs;
 
@@ -125,7 +124,7 @@ class DataController extends GetxController{
     FirebaseFirestore.instance.collection('users').snapshots().listen((event) {
       allUsers.value = event.docs;
       filteredUsers.value.assignAll(allUsers);
-      isUsersLoading(false);
+     isUsersLoading(false);
      });
   }
 
@@ -135,7 +134,7 @@ class DataController extends GetxController{
 
     FirebaseFirestore.instance.collection('events').snapshots().listen((event) {
       allEvents.assignAll(event.docs);
-      filteredEvents.assignAll(event.docs);
+    filteredEvents.assignAll(event.docs);
 
 
     joinedEvents.value =   allEvents.where((e){
@@ -157,5 +156,5 @@ class DataController extends GetxController{
 
 
 
-*/
+
 }

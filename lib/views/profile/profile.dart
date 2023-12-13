@@ -4,10 +4,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pro/views/about/abt.dart';
+import 'package:pro/views/onboarding_screen.dart';
 
 import '../../model/ticket_model.dart';
 import '../../utils/app_color.dart';
 import '../../widgets/my_widgets.dart';
+import '../auth/login_singup.dart';
 
 class ProfileScreen extends StatefulWidget {
   @override
@@ -27,26 +30,34 @@ class _ProfileScreenState extends State<ProfileScreen> {
         color: Color(0xffADD8E6),
         date: 'Feb 28',
         range: '10-11',
-        name: 'Event1',
+        name: 'Event 1',
         img1: 'assets/#1.png',
         img2: 'assets/#2.png',
         img3: 'assets/#3.png',
         img4: 'assets/#1.png',
         img5: 'assets/#3.png',
         img6: 'assets/#3.png',
-        ),
+       /* heart: 'assets/heart.png',
+        count: '5.2k',
+        message: 'assets/message.png',
+        rate: '140',
+        share: 'assets/send.png'*/),
     Ticketdetail(
         color: Color(0xff0000FF),
         date: 'may 14',
         range: '6-7:30',
-        name: 'Event2',
+        name: 'Event 2',
         img1: 'assets/#1.png',
         img2: 'assets/#2.png',
         img3: 'assets/#3.png',
         img4: 'assets/#1.png',
         img5: 'assets/#3.png',
         img6: 'assets/#3.png',
-       ),
+        /*heart: 'assets/heart2.png',
+        count: '5.2k',
+        message: 'assets/message.png',
+        rate: '150',
+        share: 'assets/send.png'*/),
   ];
 
 
@@ -61,7 +72,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   initState(){
     super.initState();
- /*   dataController = Get.find<DataController>();
+    dataController = Get.find<DataController>();
 
     firstNameController.text = dataController!.myDocument!.get('first');
     lastNameController.text = dataController!.myDocument!.get('last');
@@ -96,7 +107,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     }catch(e){
       following = 0;
     }
-*/
+
 
 
   }
@@ -122,6 +133,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     children: [
                       InkWell(
                         onTap: () {
+
+                            Get.to(()=> Aboutsc());
 
                         },
                         child: Image(
@@ -217,7 +230,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       height: 15,
                     ),
                     isNotEditable?Text(
-                      "Username",
+                      "${firstNameController.text} ${lastNameController.text}",
                       style: TextStyle(
                         fontSize: 18,
                         color: AppColors.black,
@@ -253,7 +266,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                     ),
                     isNotEditable? Text(
-                      "India",
+                      "${locationController.text}",
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w500,
@@ -277,7 +290,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     isNotEditable?Container(
                       width: 270,
                       child: Text(
-                        'I Love My Self',
+                        '${descriptionController.text}',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           letterSpacing: -0.3,
@@ -299,7 +312,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     SizedBox(
                       height: 15,
                     ),
- /*                   Container(
+                  /* Container(
                       width: double.infinity,
                       margin: EdgeInsets.symmetric(horizontal: 20),
                       padding: EdgeInsets.symmetric(horizontal: 14),
@@ -373,7 +386,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   fontSize: 16,
                                   fontWeight: FontWeight.w500,
                                 ),
-                              ),
                               ),
                             ),
                           ),
@@ -464,7 +476,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                      /*  Row(
+                     /*   Row(
                           children: [
                             Container(
                               margin: EdgeInsets.only(left: 20),
@@ -509,7 +521,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ),
                           ],
                         ),*/
-                        Container(
+                     /*   Container(
                           margin: EdgeInsets.only(left: 30, top: 10),
                           child: Text(
                             'NEW',
@@ -519,7 +531,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                        ),
+                        ),*/
                       ],
                     ),
                     Container(
@@ -724,7 +736,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                                       SizedBox(
                                                         height: 10,
                                                       ),
-                                                    /* Row(
+                                                  /*    Row(
                                                         children: [
                                                           Container(
                                                             height: 30,
@@ -794,12 +806,27 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       }),
                                   Container(
                                     child: Center(
-                                      child: Text('Tab 2',
+                                   child: MaterialButton(
+                                        onPressed: () {
+                                          Get.to(()=> OnBoardingScreen());
+                                        },
+                                        child: Text(
+                                          'Logout',
                                           style: TextStyle(
-                                              fontSize: 22,
-                                              fontWeight: FontWeight.bold)),
+                                            fontSize: 22,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white, // Change text color if needed
+                                          ),
+                                        ),
+                                        color: Colors.blue, // Change button color if needed
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(8.0), // Adjust button border radius
+                                        ),
+                                      ),
+
                                     ),
                                   ),
+
                                 ],
                               ),
                             ),

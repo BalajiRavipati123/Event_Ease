@@ -35,9 +35,6 @@ class AuthController extends GetxController {
   }
 
   void signUp({String? email, String? password}) {
-    ///here we have to provide two things
-    ///1- email
-    ///2- password
 
     isLoading(true);
 
@@ -46,10 +43,9 @@ class AuthController extends GetxController {
         .then((value) {
       isLoading(false);
 
-      /// Navigate user to profile screen
       Get.to(() => ProfileScreen());
     }).catchError((e) {
-      /// print error information
+
       print("Error in authentication $e");
       isLoading(false);
     });

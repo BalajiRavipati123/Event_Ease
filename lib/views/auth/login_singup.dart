@@ -272,34 +272,12 @@ class _LoginViewState extends State<LoginView> {
           SizedBox(
             height: Get.height * 0.02,
           ),
-          /*myText(
-            text: 'Or Connect With',
-            style: TextStyle(
-              fontSize: 19,
-              fontWeight: FontWeight.w400,
-              color: AppColors.black,
-            ),
-          ),*/
+
           SizedBox(
             height: Get.height * 0.01,
           ),
-         /* Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              socialAppsIcons(
-                  text: 'assets/fb.png',
-                  onPressed: (){
 
-                    Get.to(()=> ProfileScreen());
 
-                  }
-              ),
-
-              socialAppsIcons(
-                  text: 'assets/google.png',
-                  onPressed: (){
-
-                    //authController.signInWithGoogle();
 
                   }
 

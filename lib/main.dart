@@ -23,8 +23,8 @@ class MyApp extends StatelessWidget {
         ),
       ),
       title: 'Flutter Demo',
-      home: OnBoardingScreen(),
-      //home: FirebaseAuth.instance.currentUser == null? OnBoardingScreen() : BottomBarView(),
+      //home: OnBoardingScreen(),
+      home: FirebaseAuth.instance.currentUser == null? OnBoardingScreen() : BottomBarView(),
       debugShowCheckedModeBanner: false,
 
     );
